@@ -14,8 +14,9 @@ import { PresetPillBar } from '@/components/ui/PresetPillBar';
 import { MobileTelemetryDock } from '@/components/ui/MobileTelemetryDock';
 import { AdSlot } from '@/components/layout/AdSlot';
 import { WorkedExampleSection } from '@/components/seo/WorkedExampleSection';
+import { RelatedToolsMatrix } from '@/components/seo/RelatedToolsMatrix';
 import { JsonLdSchema } from '@/components/seo/JsonLdSchema';
-import { PINOUT_PRESETS, PinoutPreset } from '@/data/pseo-presets';
+import { PINOUT_CHECKER_PRESETS, PinoutPresetSeo } from '@/data/pseo-presets';
 import {
   Cpu,
   Radio,
@@ -31,13 +32,13 @@ import {
 } from 'lucide-react';
 
 interface PinoutCheckerWorkbenchProps {
-  initialPreset?: PinoutPreset;
+  initialPreset?: PinoutPresetSeo;
 }
 
 export const PinoutCheckerWorkbench: React.FC<PinoutCheckerWorkbenchProps> = ({
   initialPreset,
 }) => {
-  const initialMcuId = initialPreset?.mcuId || 'esp32-wroom-32';
+  const initialMcuId = initialPreset?.mcuId || initialPreset?.boardId || 'esp32-wroom-32';
   const [selectedMcuId, setSelectedMcuId] = useState<string>(initialMcuId);
   const [isWifiRadioActive, setIsWifiRadioActive] = useState<boolean>(
     initialPreset?.isWifiRadioActive ?? true
@@ -106,16 +107,16 @@ export const PinoutCheckerWorkbench: React.FC<PinoutCheckerWorkbenchProps> = ({
   const selectedPinDef = currentMcu.pins.find((p) => p.gpio === selectedPin);
 
   // Preset Pills
-  const presetList = PINOUT_PRESETS.map((p) => ({
+  const presetList = PINOUT_CHECKER_PRESETS.map((p) => ({
     slug: p.slug,
-    badge: p.badge,
-    title: p.title,
+    badge: p.badge || p.boardId,
+    title: p.title || p.h1Title,
     href: `/pinout-conflict-checker/${p.slug}`,
     isActive: initialPreset?.slug === p.slug,
   }));
 
-  const pageTitle = initialPreset?.h1 || 'Interactive Microcontroller Pinout & Bus Conflict Checker';
-  const pageMetaTitle = initialPreset?.metaTitle || 'Interactive Microcontroller Pinout & Bus Conflict Checker — TrackAndNode';
+  const pageTitle = initialPreset?.h1Title || initialPreset?.h1 || 'Interactive Microcontroller Pinout & Bus Conflict Checker';
+  const pageMetaTitle = initialPreset?.metaTitle || 'Interactive Microcontroller Pinout & Bus Conflict Checker — TraceAndNode';
 
   const workedSteps = [
     {
@@ -178,7 +179,8 @@ export const PinoutCheckerWorkbench: React.FC<PinoutCheckerWorkbenchProps> = ({
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <JsonLdSchema
         toolName={pageMetaTitle}
-        toolUrl={`https://trackandnode.dev/pinout-conflict-checker${initialPreset ? `/${initialPreset.slug}` : ''}`}
+        canonicalUrl={`https://traceandnode.com/pinout-conflict-checker${initialPreset ? `/${initialPreset.slug}` : ''}`}
+        categoryName="Firmware & Silicon Design"
         description={initialPreset?.metaDescription || 'Deterministic silicon rule evaluator for ESP32, STM32, and Arduino pinout conflict analysis.'}
         faqs={faqs}
       />
@@ -554,10 +556,20 @@ export const PinoutCheckerWorkbench: React.FC<PinoutCheckerWorkbenchProps> = ({
       {/* Dynamic Worked Mathematical Guide */}
       <WorkedExampleSection
         toolTitle={pageTitle}
+        category="pinout-checker"
         formulaTitle="Deterministic Hardware Matrix Rules"
         steps={workedSteps}
         tradeOffRows={tradeOffRows}
         faqs={faqs}
+        advisoryNote={initialPreset?.hardwareErrataNote}
+        activeMcu={currentMcu}
+      />
+
+      {/* Hub-and-Spoke Cross-Discipline Linking Matrix */}
+      <RelatedToolsMatrix
+        currentCategory="pinout-checker"
+        relatedIotSlug={initialPreset?.relatedIotSlug}
+        relatedRfSlug={initialPreset?.relatedRfSlug}
       />
 
       {/* Mobile Sticky Bottom Telemetry Dock */}

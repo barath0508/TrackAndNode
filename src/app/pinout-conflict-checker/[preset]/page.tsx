@@ -1,11 +1,11 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { PINOUT_PRESETS } from '@/data/pseo-presets';
+import { PINOUT_CHECKER_PRESETS } from '@/data/pseo-presets';
 import { PinoutCheckerWorkbench } from '@/components/calculators/pinout/PinoutCheckerWorkbench';
 
 export async function generateStaticParams() {
-  return PINOUT_PRESETS.map((preset) => ({
+  return PINOUT_CHECKER_PRESETS.map((preset) => ({
     preset: preset.slug,
   }));
 }
@@ -16,7 +16,7 @@ export async function generateMetadata({
   params: Promise<{ preset: string }>;
 }): Promise<Metadata> {
   const { preset: slug } = await params;
-  const preset = PINOUT_PRESETS.find((p) => p.slug === slug);
+  const preset = PINOUT_CHECKER_PRESETS.find((p) => p.slug === slug);
 
   if (!preset) {
     return {
@@ -24,13 +24,18 @@ export async function generateMetadata({
     };
   }
 
+  const pageUrl = `https://traceandnode.com/pinout-conflict-checker/${preset.slug}`;
+
   return {
     title: preset.metaTitle,
     description: preset.metaDescription,
+    alternates: {
+      canonical: pageUrl,
+    },
     openGraph: {
       title: preset.metaTitle,
       description: preset.metaDescription,
-      url: `https://trackandnode.dev/pinout-conflict-checker/${preset.slug}`,
+      url: pageUrl,
     },
   };
 }
@@ -41,7 +46,7 @@ export default async function PinoutPresetPage({
   params: Promise<{ preset: string }>;
 }) {
   const { preset: slug } = await params;
-  const preset = PINOUT_PRESETS.find((p) => p.slug === slug);
+  const preset = PINOUT_CHECKER_PRESETS.find((p) => p.slug === slug);
 
   if (!preset) {
     notFound();

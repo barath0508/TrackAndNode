@@ -16,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://trackandnode.dev/sitemap.xml',
+    sitemap: 'https://traceandnode.com/sitemap.xml',
   };
 }

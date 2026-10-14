@@ -101,7 +101,7 @@ export const PatchBlueprintSvg: React.FC<PatchBlueprintSvgProps> = ({
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `trackandnode-patch-${input.frequencyGhz}ghz.svg`;
+    link.download = `traceandnode-patch-${input.frequencyGhz}ghz.svg`;
     link.click();
     URL.revokeObjectURL(url);
   };

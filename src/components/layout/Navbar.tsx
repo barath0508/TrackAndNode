@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="font-mono text-lg font-bold text-white tracking-tight">TrackAndNode</span>
+                <span className="font-mono text-lg font-bold text-white tracking-tight">TraceAndNode</span>
                 <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                   v1.0
                 </span>

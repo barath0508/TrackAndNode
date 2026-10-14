@@ -1,11 +1,11 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { RF_PRESETS } from '@/data/pseo-presets';
+import { RF_PATCH_PRESETS } from '@/data/pseo-presets';
 import { PatchAntennaWorkbench } from '@/components/calculators/rf/PatchAntennaWorkbench';
 
 export async function generateStaticParams() {
-  return RF_PRESETS.map((preset) => ({
+  return RF_PATCH_PRESETS.map((preset) => ({
     preset: preset.slug,
   }));
 }
@@ -16,7 +16,7 @@ export async function generateMetadata({
   params: Promise<{ preset: string }>;
 }): Promise<Metadata> {
   const { preset: slug } = await params;
-  const preset = RF_PRESETS.find((p) => p.slug === slug);
+  const preset = RF_PATCH_PRESETS.find((p) => p.slug === slug);
 
   if (!preset) {
     return {
@@ -24,13 +24,18 @@ export async function generateMetadata({
     };
   }
 
+  const pageUrl = `https://traceandnode.com/patch-antenna-calculator/${preset.slug}`;
+
   return {
     title: preset.metaTitle,
     description: preset.metaDescription,
+    alternates: {
+      canonical: pageUrl,
+    },
     openGraph: {
       title: preset.metaTitle,
       description: preset.metaDescription,
-      url: `https://trackandnode.dev/patch-antenna-calculator/${preset.slug}`,
+      url: pageUrl,
     },
   };
 }
@@ -41,7 +46,7 @@ export default async function PatchPresetPage({
   params: Promise<{ preset: string }>;
 }) {
   const { preset: slug } = await params;
-  const preset = RF_PRESETS.find((p) => p.slug === slug);
+  const preset = RF_PATCH_PRESETS.find((p) => p.slug === slug);
 
   if (!preset) {
     notFound();

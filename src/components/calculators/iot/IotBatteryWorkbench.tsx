@@ -10,12 +10,13 @@ import { MobileTelemetryDock } from '@/components/ui/MobileTelemetryDock';
 import { PowerWaveformSvg } from './PowerWaveformSvg';
 import { AdSlot } from '@/components/layout/AdSlot';
 import { WorkedExampleSection } from '@/components/seo/WorkedExampleSection';
+import { RelatedToolsMatrix } from '@/components/seo/RelatedToolsMatrix';
 import { JsonLdSchema } from '@/components/seo/JsonLdSchema';
-import { IOT_PRESETS, IotPreset } from '@/data/pseo-presets';
+import { IOT_BATTERY_PRESETS, IotPresetSeo } from '@/data/pseo-presets';
 import { AlertTriangle, Battery, Clock, Zap, Cpu, Sparkles } from 'lucide-react';
 
 interface IotBatteryWorkbenchProps {
-  initialPreset?: IotPreset;
+  initialPreset?: IotPresetSeo;
 }
 
 export const IotBatteryWorkbench: React.FC<IotBatteryWorkbenchProps> = ({ initialPreset }) => {
@@ -113,22 +114,23 @@ export const IotBatteryWorkbench: React.FC<IotBatteryWorkbenchProps> = ({ initia
     },
   ];
 
-  const presetList = IOT_PRESETS.map((p) => ({
+  const presetList = IOT_BATTERY_PRESETS.map((p) => ({
     slug: p.slug,
-    badge: p.badge,
-    title: p.title,
+    badge: p.badge || p.targetMcuName,
+    title: p.title || p.h1Title,
     href: `/iot-battery-calculator/${p.slug}`,
     isActive: initialPreset?.slug === p.slug,
   }));
 
-  const pageTitle = initialPreset?.h1 || 'IoT Battery Life & Duty-Cycle Power Profiler';
-  const pageMetaTitle = initialPreset?.metaTitle || 'IoT Battery Life & Duty-Cycle Power Profiler — TrackAndNode';
+  const pageTitle = initialPreset?.h1Title || initialPreset?.h1 || 'IoT Battery Life & Duty-Cycle Power Profiler';
+  const pageMetaTitle = initialPreset?.metaTitle || 'IoT Battery Life & Duty-Cycle Power Profiler — TraceAndNode';
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <JsonLdSchema
         toolName={pageMetaTitle}
-        toolUrl={`https://trackandnode.dev/iot-battery-calculator${initialPreset ? `/${initialPreset.slug}` : ''}`}
+        canonicalUrl={`https://traceandnode.com/iot-battery-calculator${initialPreset ? `/${initialPreset.slug}` : ''}`}
+        categoryName="IoT & Embedded Power"
         description={initialPreset?.metaDescription || 'Accurately model battery life for IoT nodes with duty cycling, LDO quiescent drain, and RF bursts.'}
         faqs={faqs}
       />
@@ -392,10 +394,20 @@ export const IotBatteryWorkbench: React.FC<IotBatteryWorkbenchProps> = ({ initia
       {/* Dynamic Worked Mathematical Guide */}
       <WorkedExampleSection
         toolTitle={pageTitle}
+        category="iot-battery"
         formulaTitle="IoT Operational Cycle Integration"
         steps={workedSteps}
         tradeOffRows={tradeOffRows}
         faqs={faqs}
+        advisoryNote={initialPreset?.hardwareDesignNote}
+        iotInput={inputs}
+      />
+
+      {/* Hub-and-Spoke Cross-Discipline Linking Matrix */}
+      <RelatedToolsMatrix
+        currentCategory="iot-battery"
+        relatedRfSlug={initialPreset?.relatedRfSlug}
+        relatedPinoutSlug={initialPreset?.relatedPinoutSlug}
       />
 
       {/* Mobile Sticky Bottom Telemetry Dock */}

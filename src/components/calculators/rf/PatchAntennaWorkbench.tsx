@@ -11,12 +11,13 @@ import { MobileTelemetryDock } from '@/components/ui/MobileTelemetryDock';
 import { PatchBlueprintSvg } from './PatchBlueprintSvg';
 import { AdSlot } from '@/components/layout/AdSlot';
 import { WorkedExampleSection } from '@/components/seo/WorkedExampleSection';
+import { RelatedToolsMatrix } from '@/components/seo/RelatedToolsMatrix';
 import { JsonLdSchema } from '@/components/seo/JsonLdSchema';
-import { RF_PRESETS, RfPreset } from '@/data/pseo-presets';
+import { RF_PATCH_PRESETS, RfPresetSeo } from '@/data/pseo-presets';
 import { Radio, Layers, AlertTriangle, ShieldCheck, Sparkles, Sliders } from 'lucide-react';
 
 interface PatchAntennaWorkbenchProps {
-  initialPreset?: RfPreset;
+  initialPreset?: RfPresetSeo;
 }
 
 export const PatchAntennaWorkbench: React.FC<PatchAntennaWorkbenchProps> = ({ initialPreset }) => {
@@ -126,22 +127,23 @@ export const PatchAntennaWorkbench: React.FC<PatchAntennaWorkbenchProps> = ({ in
     },
   ];
 
-  const presetList = RF_PRESETS.map((p) => ({
+  const presetList = RF_PATCH_PRESETS.map((p) => ({
     slug: p.slug,
-    badge: p.badge,
-    title: p.title,
+    badge: p.badge || p.bandApplicationName,
+    title: p.title || p.h1Title,
     href: `/patch-antenna-calculator/${p.slug}`,
     isActive: initialPreset?.slug === p.slug,
   }));
 
-  const pageTitle = initialPreset?.h1 || 'Microstrip Patch Antenna & PCB Trace Impedance Calculator';
-  const pageMetaTitle = initialPreset?.metaTitle || 'Microstrip Patch Antenna & PCB Trace Impedance Calculator — TrackAndNode';
+  const pageTitle = initialPreset?.h1Title || initialPreset?.h1 || 'Microstrip Patch Antenna & PCB Trace Impedance Calculator';
+  const pageMetaTitle = initialPreset?.metaTitle || 'Microstrip Patch Antenna & PCB Trace Impedance Calculator — TraceAndNode';
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <JsonLdSchema
         toolName={pageMetaTitle}
-        toolUrl={`https://trackandnode.dev/patch-antenna-calculator${initialPreset ? `/${initialPreset.slug}` : ''}`}
+        canonicalUrl={`https://traceandnode.com/patch-antenna-calculator${initialPreset ? `/${initialPreset.slug}` : ''}`}
+        categoryName="RF & Microwave Design"
         description={initialPreset?.metaDescription || 'Calculate physical patch dimensions, inset feed depth, and CST macros with Balanis transmission line models.'}
         faqs={faqs}
       />
@@ -341,10 +343,21 @@ export const PatchAntennaWorkbench: React.FC<PatchAntennaWorkbenchProps> = ({ in
       {/* Dynamic Worked Mathematical Guide */}
       <WorkedExampleSection
         toolTitle={pageTitle}
+        category="patch-antenna"
         formulaTitle="Balanis Transmission Line Synthesis"
         steps={workedSteps}
         tradeOffRows={tradeOffRows}
         faqs={faqs}
+        advisoryNote={initialPreset?.rfLayoutNote}
+        rfFrequencyGhz={inputs.frequencyGhz}
+        rfHeightMm={inputs.substrateHeightMm}
+      />
+
+      {/* Hub-and-Spoke Cross-Discipline Linking Matrix */}
+      <RelatedToolsMatrix
+        currentCategory="patch-antenna"
+        relatedIotSlug={initialPreset?.relatedIotSlug}
+        relatedPinoutSlug={initialPreset?.relatedPinoutSlug}
       />
 
       {/* Mobile Sticky Bottom Telemetry Dock */}
