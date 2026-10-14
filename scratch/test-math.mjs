@@ -3,7 +3,7 @@ import { calculateIotBatteryLife } from '../src/lib/iot-battery-math.ts';
 import { evaluatePinoutConflicts } from '../src/lib/pinout-conflict-engine.ts';
 import { MCU_PROFILES } from '../src/data/mcu-profiles.ts';
 
-console.log('=== BENCHPULSE MATH VERIFICATION ===');
+console.log('=== TRACKANDNODE MATH VERIFICATION ===');
 
 // Test 1: 2.4 GHz patch on 1.6 mm FR-4 (er = 4.4)
 const rfResult24 = calculateMicrostripPatch({

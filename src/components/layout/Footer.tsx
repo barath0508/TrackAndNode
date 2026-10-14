@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
               <div className="w-7 h-7 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center">
                 <Activity className="w-4 h-4 text-cyan-400 stroke-[2.5]" />
               </div>
-              <span className="font-mono text-base font-bold text-white tracking-tight">BenchPulse</span>
+              <span className="font-mono text-base font-bold text-white tracking-tight">TrackAndNode</span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-md">
               High-speed, copyright-clean, zero-API-cost engineering utilities. Procedural vector blueprints,
@@ -102,7 +102,7 @@ export const Footer: React.FC = () => {
           <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
             <p className="font-semibold text-slate-300 mb-1">Clean-Room Engineering & Trademark Disclaimer:</p>
             <p>
-              BenchPulse is an independent technical calculation platform. Product names, trademarks, and registered
+              TrackAndNode is an independent technical calculation platform. Product names, trademarks, and registered
               trademarks including ESP32, ESP32-C6, ESP32-S3 (Espressif Systems), STM32 (STMicroelectronics), Arduino
               (Arduino AG), Rogers (Rogers Corporation), and CST Studio Suite (Dassault Systèmes) are property of their
               respective owners. Their reference on this website is strictly for identification, interoperability, and
@@ -113,7 +113,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2">
-            <p>© 2026 BenchPulse (benchpulse.dev). All rights reserved.</p>
+            <p>© 2026 TrackAndNode (trackandnode.dev). All rights reserved.</p>
             <p className="font-mono text-[11px]">Static Pre-Rendered (SSG) • 0 API Latency • Open Engineering Math</p>
           </div>
         </div>

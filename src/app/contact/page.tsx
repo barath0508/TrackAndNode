@@ -29,7 +29,7 @@ export default function ContactPage() {
         </h1>
         <p className="text-slate-400 text-sm leading-relaxed">
           Found an updated silicon errata note, revised dielectric constant, or want to suggest a new microcontroller matrix?
-          Our engineering team reviews community submissions to keep BenchPulse authoritative and accurate.
+          Our engineering team reviews community submissions to keep TrackAndNode authoritative and accurate.
         </p>
       </div>
 
@@ -40,7 +40,7 @@ export default function ContactPage() {
           </div>
           <h2 className="text-xl font-bold text-white">Errata Submission Received</h2>
           <p className="text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
-            Thank you for contributing to the engineering accuracy of BenchPulse. Your report will be cross-referenced
+            Thank you for contributing to the engineering accuracy of TrackAndNode. Your report will be cross-referenced
             against manufacturer technical reference manuals and verified on test benches.
           </p>
         </div>

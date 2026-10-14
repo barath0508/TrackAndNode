@@ -16,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://benchpulse.dev/sitemap.xml',
+    sitemap: 'https://trackandnode.dev/sitemap.xml',
   };
 }

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { IOT_PRESETS, RF_PRESETS, PINOUT_PRESETS } from '@/data/pseo-presets';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://benchpulse.dev';
+  const baseUrl = 'https://trackandnode.dev';
   const currentDate = new Date('2026-10-14T00:00:00.000Z');
 
   const staticRoutes: MetadataRoute.Sitemap = [

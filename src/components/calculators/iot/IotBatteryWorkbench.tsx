@@ -122,13 +122,13 @@ export const IotBatteryWorkbench: React.FC<IotBatteryWorkbenchProps> = ({ initia
   }));
 
   const pageTitle = initialPreset?.h1 || 'IoT Battery Life & Duty-Cycle Power Profiler';
-  const pageMetaTitle = initialPreset?.metaTitle || 'IoT Battery Life & Duty-Cycle Power Profiler — BenchPulse';
+  const pageMetaTitle = initialPreset?.metaTitle || 'IoT Battery Life & Duty-Cycle Power Profiler — TrackAndNode';
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <JsonLdSchema
         toolName={pageMetaTitle}
-        toolUrl={`https://benchpulse.dev/iot-battery-calculator${initialPreset ? `/${initialPreset.slug}` : ''}`}
+        toolUrl={`https://trackandnode.dev/iot-battery-calculator${initialPreset ? `/${initialPreset.slug}` : ''}`}
         description={initialPreset?.metaDescription || 'Accurately model battery life for IoT nodes with duty cycling, LDO quiescent drain, and RF bursts.'}
         faqs={faqs}
       />

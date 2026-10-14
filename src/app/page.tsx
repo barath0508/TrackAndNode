@@ -18,7 +18,7 @@ import { AdSlot } from '@/components/layout/AdSlot';
 import { IOT_PRESETS, RF_PRESETS, PINOUT_PRESETS } from '@/data/pseo-presets';
 
 export const metadata: Metadata = {
-  title: 'BenchPulse — High-Speed Hardware Engineering & RF Calculation Suite',
+  title: 'TrackAndNode — High-Speed Hardware Engineering & RF Calculation Suite',
   description:
     'Free, copyright-clean, zero-latency engineering utility platform featuring an IoT Battery Life Profiler, Microstrip Patch Antenna CAD Calculator, and MCU Pinout Conflict Checker.',
 };

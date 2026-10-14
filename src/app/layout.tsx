@@ -17,10 +17,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://benchpulse.dev'),
+  metadataBase: new URL('https://trackandnode.dev'),
   title: {
-    default: 'BenchPulse — High-Speed Hardware Engineering & RF Calculation Platform',
-    template: '%s | BenchPulse',
+    default: 'TrackAndNode — High-Speed Hardware Engineering & RF Calculation Platform',
+    template: '%s | TrackAndNode',
   },
   description:
     'Free, high-speed, zero-latency engineering utility platform featuring an IoT Battery Life Profiler, Microstrip Patch Antenna CAD Calculator, and Microcontroller Pinout Conflict Solver.',
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     'RF engineering tools',
     'CST studio macro generator',
   ],
-  authors: [{ name: 'BenchPulse Engineering Team' }],
-  creator: 'BenchPulse',
-  publisher: 'BenchPulse',
+  authors: [{ name: 'TrackAndNode Engineering Team' }],
+  creator: 'TrackAndNode',
+  publisher: 'TrackAndNode',
   formatDetection: {
     email: false,
     address: false,
@@ -45,15 +45,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://benchpulse.dev',
-    siteName: 'BenchPulse',
-    title: 'BenchPulse — Hardware Engineering & RF Calculation Suite',
+    url: 'https://trackandnode.dev',
+    siteName: 'TrackAndNode',
+    title: 'TrackAndNode — Hardware Engineering & RF Calculation Suite',
     description:
       'Zero-latency, client-side engineering tools: IoT duty-cycle battery estimation, Balanis microstrip patch antenna synthesis, and MCU bus conflict solver.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BenchPulse — Hardware Engineering & RF Calculation Suite',
+    title: 'TrackAndNode — Hardware Engineering & RF Calculation Suite',
     description:
       'High-speed engineering utilities: IoT battery life profiler, microstrip patch antenna CAD calculator, and MCU pinout conflict checker.',
   },

@@ -6,7 +6,7 @@ import { ShieldCheck, BookOpen, Cpu, Radio, BatteryCharging, CheckCircle, Termin
 export const metadata: Metadata = {
   title: 'Engineering Methodology & Author Credibility (E-E-A-T)',
   description:
-    'BenchPulse technical author credentials, clean-room calculation methodology, mathematical citations, and laboratory hardware verification.',
+    'TrackAndNode technical author credentials, clean-room calculation methodology, mathematical citations, and laboratory hardware verification.',
 };
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
           Engineering Methodology &amp; Scientific Verification
         </h1>
         <p className="text-slate-400 text-sm leading-relaxed">
-          BenchPulse was conceived by embedded systems architects and RF hardware engineers frustrated by ad-choked,
+          TrackAndNode was conceived by embedded systems architects and RF hardware engineers frustrated by ad-choked,
           imprecise web calculators. We adhere to rigorous clean-room standards, closed-form transmission line mathematics,
           and transparent silicon errata documentation.
         </p>
@@ -35,7 +35,7 @@ export default function AboutPage() {
           Governing Scientific References &amp; Mathematical Formulations
         </h2>
         <p className="text-sm text-slate-400 leading-relaxed">
-          Every equation implemented across BenchPulse is derived from peer-reviewed literature and authoritative microwave textbooks:
+          Every equation implemented across TrackAndNode is derived from peer-reviewed literature and authoritative microwave textbooks:
         </p>
 
         <div className="space-y-4 pt-2">
@@ -78,7 +78,7 @@ export default function AboutPage() {
           Clean-Room Engineering &amp; Anti-Infringement Policy
         </h2>
         <p className="text-sm text-slate-400 leading-relaxed">
-          BenchPulse operates under a strict clean-room engineering policy:
+          TrackAndNode operates under a strict clean-room engineering policy:
         </p>
         <ul className="space-y-2 text-xs font-mono text-slate-300">
           <li className="flex items-start gap-2">

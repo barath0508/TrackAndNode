@@ -115,7 +115,7 @@ export const PinoutCheckerWorkbench: React.FC<PinoutCheckerWorkbenchProps> = ({
   }));
 
   const pageTitle = initialPreset?.h1 || 'Interactive Microcontroller Pinout & Bus Conflict Checker';
-  const pageMetaTitle = initialPreset?.metaTitle || 'Interactive Microcontroller Pinout & Bus Conflict Checker — BenchPulse';
+  const pageMetaTitle = initialPreset?.metaTitle || 'Interactive Microcontroller Pinout & Bus Conflict Checker — TrackAndNode';
 
   const workedSteps = [
     {
@@ -178,7 +178,7 @@ export const PinoutCheckerWorkbench: React.FC<PinoutCheckerWorkbenchProps> = ({
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <JsonLdSchema
         toolName={pageMetaTitle}
-        toolUrl={`https://benchpulse.dev/pinout-conflict-checker${initialPreset ? `/${initialPreset.slug}` : ''}`}
+        toolUrl={`https://trackandnode.dev/pinout-conflict-checker${initialPreset ? `/${initialPreset.slug}` : ''}`}
         description={initialPreset?.metaDescription || 'Deterministic silicon rule evaluator for ESP32, STM32, and Arduino pinout conflict analysis.'}
         faqs={faqs}
       />

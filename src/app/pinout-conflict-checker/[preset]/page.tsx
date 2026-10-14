@@ -30,7 +30,7 @@ export async function generateMetadata({
     openGraph: {
       title: preset.metaTitle,
       description: preset.metaDescription,
-      url: `https://benchpulse.dev/pinout-conflict-checker/${preset.slug}`,
+      url: `https://trackandnode.dev/pinout-conflict-checker/${preset.slug}`,
     },
   };
 }

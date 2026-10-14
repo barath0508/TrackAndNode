@@ -30,7 +30,7 @@ export async function generateMetadata({
     openGraph: {
       title: preset.metaTitle,
       description: preset.metaDescription,
-      url: `https://benchpulse.dev/patch-antenna-calculator/${preset.slug}`,
+      url: `https://trackandnode.dev/patch-antenna-calculator/${preset.slug}`,
     },
   };
 }

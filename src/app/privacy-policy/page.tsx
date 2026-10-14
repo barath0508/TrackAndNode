@@ -6,7 +6,7 @@ import { Shield, Lock } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Privacy Policy & Google AdSense Disclosures',
   description:
-    'BenchPulse privacy policy, zero backend data collection, cookie policy, Google AdSense DART disclosures, and GDPR/CCPA compliance.',
+    'TrackAndNode privacy policy, zero backend data collection, cookie policy, Google AdSense DART disclosures, and GDPR/CCPA compliance.',
 };
 
 export default function PrivacyPolicyPage() {
@@ -32,7 +32,7 @@ export default function PrivacyPolicyPage() {
           1. 100% Client-Side Computation (Zero Private Data Logging)
         </h2>
         <p className="text-sm text-slate-400 leading-relaxed font-sans">
-          BenchPulse is engineered as a static client-side web application. All electrical parameters, custom RF dimensions,
+          TrackAndNode is engineered as a static client-side web application. All electrical parameters, custom RF dimensions,
           microcontroller pinout allocations, and battery discharge inputs entered into our calculator workbenches are executed
           strictly within your local web browser&apos;s JavaScript engine.
         </p>
@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-white">4. GDPR &amp; CCPA Privacy Rights</h2>
         <p className="text-sm text-slate-400 leading-relaxed font-sans">
-          Under the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA), visitors have rights to access, rectify, or erase personal data. Because BenchPulse does not maintain user accounts, require registration, or store engineering inputs, we hold zero user-identifiable records.
+          Under the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA), visitors have rights to access, rectify, or erase personal data. Because TrackAndNode does not maintain user accounts, require registration, or store engineering inputs, we hold zero user-identifiable records.
         </p>
       </section>
 

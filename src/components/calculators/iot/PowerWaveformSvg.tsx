@@ -100,7 +100,7 @@ export const PowerWaveformSvg: React.FC<PowerWaveformSvgProps> = ({ input, outpu
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `benchpulse-duty-cycle-${input.wakeIntervalSeconds}s.svg`;
+    link.download = `trackandnode-duty-cycle-${input.wakeIntervalSeconds}s.svg`;
     link.click();
     URL.revokeObjectURL(url);
   };

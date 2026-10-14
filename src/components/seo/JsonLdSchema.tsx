@@ -33,8 +33,8 @@ export const JsonLdSchema: React.FC<JsonLdSchemaProps> = ({
     description: description,
     author: {
       '@type': 'Organization',
-      name: 'BenchPulse',
-      url: 'https://benchpulse.dev',
+      name: 'TrackAndNode',
+      url: 'https://trackandnode.dev',
     },
   };
 
